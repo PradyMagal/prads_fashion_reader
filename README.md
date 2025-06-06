@@ -1,4 +1,4 @@
-# Fashion Vision Bot
+# Prad's Fashion Reader
 
 A multimodal fashion classification system that combines computer vision and natural language processing to analyze fashion images and predict fabric types for different clothing categories.
 Includes REST Server to host easily at an endpoint.
