@@ -1,0 +1,66 @@
+[tool.poetry]
+name = "fashion-vision-bot"
+version = "0.1.0"
+description = "PyTorch fashion classification project with computer vision capabilities"
+authors = ["Pradyun Magal <magal.pradyun@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "imagetodescribe", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+torch = "^2.1.0"
+torchvision = "^0.16.0"
+timm = "^0.9.12"
+transformers = { version = "^4.35.0", optional = true }
+faiss-cpu = { version = "^1.7.4", optional = true }
+opencv-python = "^4.8.1"
+pillow = "^10.1.0"
+scikit-learn = "^1.3.2"
+pandas = "^2.1.3"
+tqdm = "^4.66.1"
+matplotlib = "^3.8.2"
+numpy = "<2"
+fastapi = "^0.115.12"
+uvicorn = "^0.34.3"
+python-multipart = "^0.0.20"
+loguru = "^0.7.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+black = "^23.11.0"
+flake8 = "^6.1.0"
+isort = "^5.12.0"
+mypy = "^1.7.1"
+
+[tool.poetry.extras]
+text = ["transformers"]
+search = ["faiss-cpu"]
+full = ["transformers", "faiss-cpu"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
